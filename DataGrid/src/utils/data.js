@@ -5,7 +5,8 @@ export const columnsObject = {
         dataType:"Number",
         isSortable:false,
         isFilterable:false,
-        isSearchable:false
+        isSearchable:false,
+        filterId:1
     },
     configurationItem:{
         uiName:"Configuration Item",
@@ -13,6 +14,7 @@ export const columnsObject = {
         isSortable:true,
         isFilterable:true,
         isSearchable:true,
+        filterId:2
     },
     region:{
         uiName:"Region",
@@ -20,6 +22,7 @@ export const columnsObject = {
         isSortable:true,
         isFilterable:true,
         isSearchable:true,
+        filterId:3,
     },
     subRegion:{
         uiName:"Sub Region",
@@ -27,6 +30,7 @@ export const columnsObject = {
         isSortable:true,
         isFilterable:true,
         isSearchable:true,
+        filterId:4
     },
     status:{
         uiName:"Status",
@@ -34,6 +38,7 @@ export const columnsObject = {
         isSortable:true,
         isFilterable:true,
         isSearchable:true,
+        filterId:5
     },
     priority:{
         uiName:"Priority",
@@ -41,5 +46,6 @@ export const columnsObject = {
         isSortable:true,
         isFilterable:true,
         isSearchable:true,
+        filterId:6
     }
 }

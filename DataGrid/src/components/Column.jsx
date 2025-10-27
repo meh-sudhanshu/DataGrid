@@ -1,29 +1,32 @@
+import { ColumnHeaderContext } from "../context/ColumnHeaderContext"
 import styles from "./Column.module.css"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 
 export const Column = ({ name, configs }) => {
-    const [isHamburgurOpen,setIsHamburgurOpen] = useState(false)
+    const { currentActiveColumnFilterId, setCurrentActiveColumnFilterId } = useContext(ColumnHeaderContext)
     const hamburgerClickHandler = () => {
-         setIsHamburgurOpen((prev)=>!prev)
-    }
-    useEffect(()=>{
-        if(isHamburgurOpen){
-
+        if(currentActiveColumnFilterId == configs.filterId){
+            setCurrentActiveColumnFilterId(null)
         }else{
-
+            setCurrentActiveColumnFilterId(configs.filterId)
         }
-    },[isHamburgurOpen])
+    };
+
     return (
         <div className={styles.columnItemsContainer}>
             <div className={styles.columnText}>{configs.uiName}</div>
-            { (configs.isFilterable || configs.isSearchable || configs.isSortable )
-                 &&
-                <button className={`${styles.hamburger} ${isHamburgurOpen && styles.open}`} onClick={hamburgerClickHandler} aria-label="Button, Open Column Options">
+            {(configs.isFilterable || configs.isSearchable || configs.isSortable)
+                &&
+                <div
+                    className={`${styles.hamburger} ${currentActiveColumnFilterId === configs.filterId ? styles.open : ""}`}
+                    onClick={hamburgerClickHandler}
+                    aria-label="Button, Open Column Options"
+                >
                     <span></span>
                     <span></span>
                     <span></span>
-                </button>
+                </div>
             }
         </div>
     )

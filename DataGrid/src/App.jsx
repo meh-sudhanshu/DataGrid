@@ -1,6 +1,6 @@
 import './App.css'
 import { Column } from './components/Column'
-import { ColumnContainer } from './layout/ColumnContainer'
+import { ColumnHeader } from './layout/ColumnHeader'
 
 import { columnsObject } from './utils/data'
 
@@ -17,7 +17,7 @@ function App() {
     
     <div className="ctn" style={style}>
         {/* <Column/> */}
-        <ColumnContainer columnsObject={columnsObject}/>
+        <ColumnHeader columnsObject={columnsObject}/>
     </div>
   )
 }
