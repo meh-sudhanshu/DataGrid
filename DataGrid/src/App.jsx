@@ -1,6 +1,6 @@
 import './App.css'
 import { Column } from './components/Column'
-import { ColumnHeader } from './layout/ColumnHeader'
+import { ColumnHeader } from './layouts/ColumnHeader'
 
 import { columnsObject } from './utils/data'
 

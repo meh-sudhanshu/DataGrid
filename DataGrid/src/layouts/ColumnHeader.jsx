@@ -1,5 +1,5 @@
 import { Column } from "../components/Column"
-import { ColumnHeaderProvider } from "../context/ColumnHeaderContext"
+import { ColumnHeaderProvider } from "../contexts/ColumnHeaderContext"
 import styles from './ColumnHeader.module.css'
 
 
