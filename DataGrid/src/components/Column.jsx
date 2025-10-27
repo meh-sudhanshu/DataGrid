@@ -1,7 +1,8 @@
-import { ColumnHeaderContext } from "../context/ColumnHeaderContext"
+import { ColumnHeaderContext } from "../contexts/ColumnHeaderContext"
 import styles from "./Column.module.css"
 
 import { useEffect, useState, useContext } from "react"
+import { ColumnFilterCard } from "./ColumnFilterCard"
 
 export const Column = ({ name, configs }) => {
     const { currentActiveColumnFilterId, setCurrentActiveColumnFilterId } = useContext(ColumnHeaderContext)
@@ -12,7 +13,6 @@ export const Column = ({ name, configs }) => {
             setCurrentActiveColumnFilterId(configs.filterId)
         }
     };
-
     return (
         <div className={styles.columnItemsContainer}>
             <div className={styles.columnText}>{configs.uiName}</div>
@@ -28,6 +28,7 @@ export const Column = ({ name, configs }) => {
                     <span></span>
                 </div>
             }
+            {currentActiveColumnFilterId === configs.filterId && <ColumnFilterCard/>}
         </div>
     )
 }
