@@ -1,11 +1,13 @@
 import { ColumnHeaderContext } from "../contexts/ColumnHeaderContext"
 import styles from "./Column.module.css"
 
-import { useEffect, useState, useContext } from "react"
+import { useEffect, useState, useContext, use } from "react"
 import { ColumnFilterCard } from "./ColumnFilterCard"
+import { ThemeContext } from "../contexts/ThemeContext"
 
 export const Column = ({ name, configs }) => {
     const { currentActiveColumnFilterId, setCurrentActiveColumnFilterId } = useContext(ColumnHeaderContext)
+    const {theme} = useContext(ThemeContext)
     const hamburgerClickHandler = () => {
         if(currentActiveColumnFilterId == configs.filterId){
             setCurrentActiveColumnFilterId(null)
@@ -14,7 +16,7 @@ export const Column = ({ name, configs }) => {
         }
     };
     return (
-        <div className={styles.columnItemsContainer}>
+        <div className={styles.columnItemsContainer} style={{backgroundColor : theme === "dark" ? "black" :"white"}}>
             <div className={styles.columnText}>{configs.uiName}</div>
             {(configs.isFilterable || configs.isSearchable || configs.isSortable)
                 &&

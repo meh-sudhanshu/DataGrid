@@ -1,5 +1,6 @@
 import './App.css'
 import { Column } from './components/Column'
+import { ThemeProvider } from './contexts/ThemeContext'
 import { ColumnHeader } from './layouts/ColumnHeader'
 
 import { columnsObject } from './utils/data'
@@ -14,11 +15,11 @@ const style ={
 
 function App() {
   return (
-    
-    <div className="ctn" style={style}>
-        {/* <Column/> */}
-        <ColumnHeader columnsObject={columnsObject}/>
-    </div>
+    <ThemeProvider>
+       <div className="ctn" style={style}>
+          <ColumnHeader columnsObject={columnsObject}/>
+       </div>
+    </ThemeProvider>
   )
 }
 
